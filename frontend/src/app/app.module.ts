@@ -16,6 +16,7 @@ import { RedDirective } from './directives/red.directive'
 import { ForDirective } from './directives/for.directive';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from "@angular/common/http"
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from '@angular/material/sidenav'
@@ -46,7 +47,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

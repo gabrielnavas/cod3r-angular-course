@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import { Product } from '../product.model';
 
 @Component({
   selector: 'app-product-create',
@@ -10,7 +11,10 @@ import { ProductService } from '../product.service';
 })
 export class ProductCreateComponent implements OnInit {
 
-  propLegal = "qualquer"
+  product: Product = {
+    name: "",
+    price: 0.0,
+  }
 
   constructor(
     private router: Router,
@@ -21,10 +25,18 @@ export class ProductCreateComponent implements OnInit {
   }
 
   createProduct() {
-    this.productService.showOn('Produto criado!');
+    this.productService.createProduct(this.product)
+      .subscribe(
+        () => {
+        this.productService.showOn('Produto criado!')
+        this.router.navigateByUrl("/products")
+        },
+        err => this.productService.showOn('Houve um problema, tente novamente mais tarde.')
+      )
+    
   }
 
   cancel() {
-    this.router.navigateByUrl("/products");
+    this.router.navigateByUrl("/products")
   }
 }
