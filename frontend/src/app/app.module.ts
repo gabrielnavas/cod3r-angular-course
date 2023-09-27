@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { ProductCreateComponent } from './components/product/product-create/product-create.component'
+
 
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
@@ -27,7 +27,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { FormsModule } from "@angular/forms"
 import { MatFormFieldModule } from "@angular/material/form-field"
-import { MatInputModule } from "@angular/material/input"
+import { MatInputModule } from "@angular/material/input";
+
+import { ProductReadComponent } from './components/product/product-read/product-read.component';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component'
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { MatInputModule } from "@angular/material/input"
     ProductCrudComponent,
     RedDirective,
     ForDirective,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductReadComponent
   ],
   imports: [
     BrowserModule,
