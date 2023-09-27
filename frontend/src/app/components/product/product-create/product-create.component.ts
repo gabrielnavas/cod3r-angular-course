@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-create',
@@ -9,7 +11,9 @@ export class ProductCreateComponent implements OnInit {
 
   propLegal = "qualquer"
 
-  constructor() { }
+  constructor(
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +22,7 @@ export class ProductCreateComponent implements OnInit {
     console.log('fazendo algo');
   }
 
+  backPage() {
+    this.location.back();
+  }
 }
