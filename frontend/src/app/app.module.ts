@@ -18,7 +18,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from '@angular/material/list'
 import { MatCardModule } from "@angular/material/card";
-import { ForDirective } from './directives/for.directive'
+import { ForDirective } from './directives/for.directive';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component'
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ForDirective } from './directives/for.directive'
     HomeComponent,
     ProductCrudComponent,
     RedDirective,
-    ForDirective
+    ForDirective,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
