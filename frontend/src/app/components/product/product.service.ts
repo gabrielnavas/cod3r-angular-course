@@ -12,7 +12,7 @@ export class ProductService {
   ) { }
 
   showOn(msg: string): void {
-    this.snackBar.open(msg, '', {
+    this.snackBar.open(msg, 'x', {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
