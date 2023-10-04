@@ -27,8 +27,15 @@ export class ProductReadComponent implements OnInit {
     this.productService.read()
       .subscribe(
         (products: Product[]) => this.products = products,
-        err => this.productService.showOn('Tente novamente mais tarde.')
+        err => this.showMessage('Tente novamente mais tarde.')
       )
   }
 
+  private showMessage(message: string): void {
+    this.snackBar.open(message, 'x', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    })
+  }
 }

@@ -34,12 +34,4 @@ export class ProductService {
     const url = `${this.baseUrl}/${product.id}`
     return this.http.patch<Product>(url, product)
   }
-
-  showOn(msg: string): void {
-    this.snackBar.open(msg, 'x', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    })
-  }
 }

@@ -38,7 +38,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { SpaceCurrencyPipe } from './pipes/space-currency.pipe'
 
 import localePt from "@angular/common/locales/pt"
-import { registerLocaleData } from "@angular/common"
+import { registerLocaleData } from "@angular/common";
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component'
 
 registerLocaleData(localePt)
 
@@ -55,7 +56,8 @@ registerLocaleData(localePt)
     ProductCreateComponent,
     ProductReadComponent,
     ProductRead2Component,
-    SpaceCurrencyPipe
+    SpaceCurrencyPipe,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,
