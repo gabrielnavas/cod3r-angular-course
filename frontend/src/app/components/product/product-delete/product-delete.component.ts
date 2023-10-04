@@ -3,6 +3,7 @@ import { Product } from '../product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ShowMessageService } from '../show-message.service';
 
 @Component({
   selector: 'app-product-delete',
@@ -17,7 +18,7 @@ export class ProductDeleteComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute, 
     private productService: ProductService,
-    private snackBar: MatSnackBar
+    private showMessageService: ShowMessageService
   ) { }
 
   ngOnInit(): void {
@@ -32,13 +33,12 @@ export class ProductDeleteComponent implements OnInit {
   confirmDeleteProduct(): void {
     this.productService.delete(this.product.id.toString()).subscribe(
       () => {
-        this.showMessage("Produto removido.")
+        this.showMessageService.showMessage("Produto removido.", 'message-success')
         this.router.navigateByUrl("products")
       },
       err => this.productNotFound(err)
     )
   }
-
 
   cancel(): void {
     this.initProduct()
@@ -53,17 +53,9 @@ export class ProductDeleteComponent implements OnInit {
     }
   }
 
-  private showMessage(message: string): void {
-    this.snackBar.open(message, 'x', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    })
-  }
-
   private productNotFound(err: Error): void {
     console.log(err);
-    this.showMessage('Produto não encontrado.')
+    this.showMessageService.showMessage('Produto não encontrado.', 'message-failed')
     this.cancel();
   }
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ShowMessageService } from '../show-message.service';
 
 @Component({
   selector: 'app-product-create',
@@ -20,7 +21,7 @@ export class ProductCreateComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private snackBar: MatSnackBar
+    private showMessageService: ShowMessageService
   ) { }
 
   ngOnInit(): void {
@@ -30,23 +31,15 @@ export class ProductCreateComponent implements OnInit {
     this.productService.createProduct(this.product)
       .subscribe(
         () => {
-        this.showMessage('Produto criado!')
+        this.showMessageService.showMessage("Produto criado!", 'message-success')
         this.router.navigateByUrl("/products")
         },
-        err => this.showMessage('Houve um problema, tente novamente mais tarde.')
+        err => this.showMessageService.showMessage("Tente novamente mais tarde.", 'message-failed')
       )
     
   }
 
   cancel() {
     this.router.navigateByUrl("/products")
-  }
-
-  private showMessage(message: string): void {
-    this.snackBar.open(message, 'x', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    })
   }
 }

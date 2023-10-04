@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ShowMessageService } from '../show-message.service';
 
 @Component({
   selector: 'app-product-read',
@@ -16,7 +17,7 @@ export class ProductReadComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private snackBar: MatSnackBar,
+    private showMessageService: ShowMessageService
   ) { }
 
   ngOnInit(): void {
@@ -26,16 +27,14 @@ export class ProductReadComponent implements OnInit {
   private readProducts(): void {
     this.productService.read()
       .subscribe(
-        (products: Product[]) => this.products = products,
-        err => this.showMessage('Tente novamente mais tarde.')
+        (products: Product[]) => {
+          if(products.length === 0) {
+            this.showMessageService.showMessage('Nenhum produto encontrado', 'message-failed')
+          } else {
+            this.products = products
+          }
+        },
+        err => this.showMessageService.showMessage("Tente novamente mais tarde.", 'message-failed')
       )
-  }
-
-  private showMessage(message: string): void {
-    this.snackBar.open(message, 'x', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    })
   }
 }
