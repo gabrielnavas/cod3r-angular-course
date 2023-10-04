@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductReadComponent implements OnInit {
 
+  displayedColumns: string[] = ['id', 'name', 'price']
+
   products: Product[] = []
 
   constructor(
