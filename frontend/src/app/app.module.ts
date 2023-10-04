@@ -34,7 +34,8 @@ import { ProductCreateComponent } from './components/product/product-create/prod
 import { ProductRead2Component } from './components/product/product-read2/product-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort'
+import { MatSortModule } from '@angular/material/sort';
+import { SpaceCurrencyPipe } from './pipes/space-currency.pipe'
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MatSortModule } from '@angular/material/sort'
     ForDirective,
     ProductCreateComponent,
     ProductReadComponent,
-    ProductRead2Component
+    ProductRead2Component,
+    SpaceCurrencyPipe
   ],
   imports: [
     BrowserModule,
