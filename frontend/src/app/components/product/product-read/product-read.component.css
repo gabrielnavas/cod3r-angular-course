@@ -5,3 +5,11 @@ table {
 .td-actions button {
   margin-left: 1.1rem;
 }
+
+.edit {
+  color: #d9cd26;
+}
+
+.delete {
+  color: #e35e6b;
+}
