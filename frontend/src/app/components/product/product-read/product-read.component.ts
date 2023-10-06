@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShowMessageService } from '../show-message.service';
 
 @Component({
